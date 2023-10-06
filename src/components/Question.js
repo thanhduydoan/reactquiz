@@ -1,9 +1,12 @@
+import { useQuizz } from "../contexts/QuizContext"
 import Option from "./Option"
-export default function Question({ question, dispatch, answer }) {
+export default function Question() {
+    const { questions, index } = useQuizz()
+    const question = questions.at(index)
     return <div>
-        <h4>{question.question}</h4>
+        <h4>{questions.question}</h4>
         <div className="options">
-            <Option question={question} dispatch={dispatch} answer={answer} />
+            <Option question={question} />
         </div>
     </div>
 }
